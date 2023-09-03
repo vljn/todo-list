@@ -1,5 +1,5 @@
 class Todo {
-  #checked = false;
+  checked = false;
 
   constructor(title, description = "", date = "", color = "#034efc") {
     this.title = title;
@@ -9,11 +9,11 @@ class Todo {
   }
 
   check() {
-    this.#checked = !this.#checked;
+    this.checked = !this.checked;
   }
 
   isChecked() {
-    return this.#checked;
+    return this.checked;
   }
 }
 

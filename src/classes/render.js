@@ -38,6 +38,7 @@ class RenderingHandler {
       if (this.#app.selectedProject === -1) {
         this.#app.selectedProject = 0;
       }
+      this.#app.updateStorage();
       this.renderAll();
     });
   }
@@ -53,6 +54,7 @@ class RenderingHandler {
       } else {
         this.#app.addTodo("New Todo");
       }
+      this.#app.updateStorage();
       this.renderTodos();
     });
   }
@@ -128,6 +130,7 @@ class RenderingHandler {
         this.#app.selectedProject = index;
       }
       this.#app.selectedTodo = -1;
+      this.#app.updateStorage();
       this.renderAll();
     });
     this.#tabContainer.appendChild(tab);
@@ -185,6 +188,7 @@ class RenderingHandler {
         this.#app.selectedTodo = index;
         this.#renderTodoScreen();
       }
+      this.#app.updateStorage();
       this.renderTodos();
     });
 
@@ -217,6 +221,7 @@ class RenderingHandler {
       edit.addEventListener("click", () => {
         if (input.value !== "") {
           project.name = input.value;
+          this.#app.updateStorage();
           this.renderTabs();
         }
       });
@@ -228,6 +233,7 @@ class RenderingHandler {
 
       inputColor.addEventListener("input", () => {
         project.color = inputColor.value;
+        this.#app.updateStorage();
         this.renderTabs();
       });
     }
@@ -257,6 +263,7 @@ class RenderingHandler {
       edit.addEventListener("click", () => {
         if (input.value !== "") {
           todo.title = input.value;
+          this.#app.updateStorage();
           this.renderTodos();
         }
       });
@@ -268,6 +275,7 @@ class RenderingHandler {
 
       inputColor.addEventListener("input", () => {
         todo.color = inputColor.value;
+        this.#app.updateStorage();
         this.renderTodos();
       });
 
@@ -288,6 +296,7 @@ class RenderingHandler {
         dateInput.value = todo.date;
       }
       dateInput.addEventListener("input", () => {
+        this.#app.updateStorage();
         todo.date = dateInput.value;
       });
 
@@ -301,6 +310,7 @@ class RenderingHandler {
       deleteBtn.addEventListener("click", () => {
         this.#app.getSelectedProject().todos.splice(this.#app.selectedTodo, 1);
         this.#app.selectedTodo = -1;
+        this.#app.updateStorage();
         this.renderTodos();
         this.#renderTodoScreen();
       });
@@ -315,6 +325,7 @@ class RenderingHandler {
       description.className = todoStyles["todo-description"];
       description.textContent = this.#app.getSelectedTodo().description;
       description.addEventListener("input", () => {
+        this.#app.updateStorage();
         this.#app.getSelectedTodo().description = description.value;
       });
       todoArea.appendChild(description);
