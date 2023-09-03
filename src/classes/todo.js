@@ -9,7 +9,7 @@ class Todo {
   }
 
   check() {
-    this.checked = !this.checked;
+    this.#checked = !this.#checked;
   }
 
   isChecked() {

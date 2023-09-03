@@ -4,12 +4,25 @@ function pageLoad() {
   const wrapper = document.createElement("div");
   wrapper.className = styles.wrapper;
 
+  const tabsWrapper = document.createElement("div");
+  tabsWrapper.className = styles["tabs-wrapper"];
+  wrapper.appendChild(tabsWrapper);
+
   const tabs = document.createElement("div");
   tabs.className = styles.tabs;
-  wrapper.appendChild(tabs);
+  tabsWrapper.appendChild(tabs);
+
+  const newTabButton = document.createElement("button");
+  newTabButton.className = styles["new-tab"];
+  tabsWrapper.appendChild(newTabButton);
+
+  const checkIcon1 = document.createElement("i");
+  checkIcon1.classList.add("fa-solid", "fa-plus", "fa-xl");
+  newTabButton.appendChild(checkIcon1);
 
   const main = document.createElement("div");
   main.className = styles.main;
+  main.style["border-left"] = "5px solid #ffcc00";
   wrapper.appendChild(main);
 
   const todos = document.createElement("div");
@@ -47,13 +60,28 @@ function pageLoad() {
   submitButton.className = styles.submit;
   formRight.appendChild(submitButton);
 
-  const checkIcon = document.createElement("i");
-  checkIcon.classList.add("fa-solid", "fa-plus", "fa-xl");
-  submitButton.appendChild(checkIcon);
+  const checkIcon2 = document.createElement("i");
+  checkIcon2.classList.add("fa-solid", "fa-plus", "fa-xl");
+  submitButton.appendChild(checkIcon2);
 
   const todoScreen = document.createElement("div");
-  todoScreen.className = styles["todo-screen"];
   main.appendChild(todoScreen);
+
+  const heading = document.createElement("div");
+  heading.className = styles.heading;
+  todoScreen.appendChild(heading);
+
+  const projectInfo = document.createElement("div");
+  projectInfo.className = styles.project;
+  heading.appendChild(projectInfo);
+
+  const todoInfo = document.createElement("div");
+  todoInfo.className = styles.todo;
+  heading.appendChild(todoInfo);
+
+  const todoArea = document.createElement("div");
+  todoArea.className = styles["todo-area"];
+  todoScreen.appendChild(todoArea);
 
   document.querySelector("body").appendChild(wrapper);
 }

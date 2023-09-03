@@ -20,11 +20,12 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              modules: true,
+              modules: {
+                auto: (resourcePath) => !resourcePath.endsWith("coloris.css"),
+              },
             },
           },
         ],
-        exclude: /node_modules/,
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,

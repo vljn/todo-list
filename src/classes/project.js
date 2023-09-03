@@ -1,8 +1,8 @@
 class Project {
-  constructor(name, ...todos) {
+  constructor(name = "New Project", color = "#ffcc00") {
     this.name = name;
     this.todos = [];
-    todos.forEach((x) => this.add(x));
+    this.color = color;
   }
 
   add(todo) {

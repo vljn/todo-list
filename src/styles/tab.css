@@ -5,11 +5,12 @@
   background-color: lightgray;
   width: 150px;
   height: 100%;
-  align-items: center;
   justify-content: space-between;
   padding: 0 10px;
+  padding-top: 5px;
   border-radius: 10px 10px 0px 0px;
   font-family: "Nunito", sans-serif;
+  box-sizing: border-box;
 }
 
 .active {
@@ -19,6 +20,7 @@
 .left {
   font-size: 14px;
   width: 80%;
+  white-space: nowrap;
 }
 
 .left p {
@@ -30,8 +32,8 @@
 
 .right {
   display: flex;
-  align-items: center;
   justify-content: center;
+  gap: 5px;
 }
 
 .icon {
