@@ -238,6 +238,7 @@ class RenderingHandler {
       const todo = this.#app.getSelectedTodo();
 
       const left = document.createElement("div");
+      left.className = todoStyles["left-todo"];
       todoInfo.appendChild(left);
 
       const input = document.createElement("input");
@@ -271,7 +272,24 @@ class RenderingHandler {
       });
 
       const right = document.createElement("div");
+      right.className = todoStyles["right-todo"];
       todoInfo.appendChild(right);
+
+      const dateDiv = document.createElement("div");
+      dateDiv.className = todoStyles.date;
+      dateDiv.textContent = "due:";
+      right.appendChild(dateDiv);
+
+      const dateInput = document.createElement("input");
+      dateInput.className = todoStyles["date-input"];
+      dateInput.setAttribute("type", "date");
+      dateDiv.appendChild(dateInput);
+      if (todo.date !== "") {
+        dateInput.value = todo.date;
+      }
+      dateInput.addEventListener("input", () => {
+        todo.date = dateInput.value;
+      });
 
       const deleteBtn = document.createElement("button");
       deleteBtn.className = todoStyles["delete-button"];
@@ -293,7 +311,6 @@ class RenderingHandler {
     const todoArea = document.querySelector("." + styles["todo-area"]);
     todoArea.innerHTML = "";
     if (this.#app.selectedTodo !== -1) {
-      console.log("a");
       const description = document.createElement("textarea");
       description.className = todoStyles["todo-description"];
       description.textContent = this.#app.getSelectedTodo().description;

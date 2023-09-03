@@ -68,6 +68,17 @@
   outline: none;
 }
 
+.left-todo {
+  display: flex;
+  align-items: center;
+}
+
+.right-todo {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
 .button {
   width: 25px;
   height: 25px;
@@ -81,6 +92,23 @@
 
 .button:hover {
   background-color: lightgrey;
+}
+
+.date {
+  font-style: italic;
+  font-family: "Nunito", sans-serif;
+  color: darkgray;
+}
+
+.date-input {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: lightgray;
+  font-family: "Nunito", sans-serif;
+  outline: none;
+  margin-left: 10px;
 }
 
 .delete-button {
